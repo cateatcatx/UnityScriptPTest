@@ -1,0 +1,175 @@
+local up = Vector3.up
+local GameObject = UnityEngine.GameObject
+local SkinnedMeshRenderer = UnityEngine.SkinnedMeshRenderer
+local Vector3 = Vector3
+local Quaternion = Quaternion
+local Normalize = Vector3.Normalize
+local Input = UnityEngine.Input
+
+-- Test11
+function EmptyFunc()
+	_V0 = _V0 + 1
+end
+
+_V0 = 1 -- Test12
+_V1 = "12345" -- Test13
+_V2 = GameObject.New() -- Test14
+_V3 = Vector3.New(1, 2, 3) -- Test15
+_V4 = {1, 2, 3} -- Test16
+
+
+
+
+
+function GC()
+	collectgarbage()
+end
+
+function Version()
+	print(jit.version)
+end
+
+
+function JitSwitch()
+	local isOpen = jit.status()
+	if isOpen then
+		jit.flush()
+		jit.off()
+	else
+		jit.on()
+	end
+	
+	print(not isOpen and "jit on !!!!!!!!!!!!!!!!" or "jit off !!!!!!!!!!!!!!!!")
+end
+
+
+function Test0(transform)	
+	local t = os.clock()
+	
+	for i = 1,200000 do
+		transform.position = transform.position
+	end
+	
+	return os.clock() - t
+end
+
+function Test1(transform)			
+	local t = os.clock()
+	for i = 1,200000 do
+		transform:Rotate(up, 1)	
+	end
+	
+	return os.clock() - t
+end
+
+function Test2()	
+	local t = os.clock()
+	
+	for i = 1, 2000000 do
+		local v = Vector3.New(i, i, i)
+		local x,y,z = v.x, v.y, v.z
+	end
+		
+	return os.clock() - t
+end
+
+--会存在大量gc操作
+function Test3()
+	local t = os.clock()	
+
+	for i = 1,20000 do				
+		GameObject.New()
+	end
+	
+	return os.clock() - t
+end
+
+function Test4()	
+	local t = os.clock()
+	local tp = typeof(SkinnedMeshRenderer)
+
+	for i = 1,20000 do				
+		local go = GameObject.New()
+		go:AddComponent(tp)
+    	local c = go:GetComponent(tp)
+    	c.receiveShadows=false
+	end
+		
+	return os.clock() - t
+end
+
+function Test5()
+	local t = os.clock()
+	
+	for i = 1,200000 do		
+		local p = Input.mousePosition
+		--Physics.RayCast
+	end
+		
+	return os.clock() - t
+end
+
+function Test6()	
+	local Vector3 = Vector3	
+	local t = os.clock()
+		
+	for i = 1, 200000 do
+		local v = Vector3.New(i,i,i)
+		Vector3.Normalize(v)
+	end
+		
+	return os.clock() - t
+end
+
+function Test7()		
+	local Quaternion = Quaternion
+	local t = os.clock()
+	
+	for i=1,200000 do
+		local q1 = Quaternion.Euler(i, i, i)		
+		local q2 = Quaternion.Euler(i * 2, i * 2, i * 2)
+		Quaternion.Slerp(Quaternion.identity, q1, 0.5)		
+	end
+		
+	return os.clock() - t
+end
+
+function Test8()
+	local total = 0
+	local t = os.clock()
+
+	for i = 0, 1000000, 1 do
+		total = total + i - (i/2) * (i + 3) / (i + 5)
+	end
+
+	return os.clock() - t	
+end
+
+function Test9()
+	local array = {}
+
+	for i = 1, 1024 do
+		array[i] = i
+	end
+
+	local total = 0
+	local t = os.clock()
+		
+	for j = 1, 100000 do
+		for i = 1, 1024 do
+			total = total + array[i]
+		end			
+	end
+		
+	return os.clock() - t
+end
+
+function Test10(trans)
+	local t = os.clock()
+	
+	for i = 1, 200000 do
+		UserClass.TestFunc1(1, "123", trans.position, trans)
+	end	
+		
+	return os.clock() - t
+end

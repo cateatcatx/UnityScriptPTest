@@ -1,0 +1,16 @@
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\bin\Release\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\bin\Release\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\bin\Release\Assembly-CSharp.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\bin\Release\UnityEngine.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\bin\Release\UnityEngine.xml
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\obj\Release\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\PTestDll\obj\Release\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\Assets\StreamingAssets\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\PTestDll\Assets\StreamingAssets\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\Assets\StreamingAssets\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntimeTest\Assets\StreamingAssets\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntime\Assets\StreamingAssets\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntime\Assets\StreamingAssets\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntime\PTestDll\PTestDll\obj\Release\PTestDll.dll
+E:\client\experimental\UnityScriptPTest\ILRuntime\PTestDll\PTestDll\obj\Release\PTestDll.pdb
+E:\client\experimental\UnityScriptPTest\ILRuntime\PTestDll\PTestDll\obj\Release\PTestDll.csprojResolveAssemblyReference.cache
