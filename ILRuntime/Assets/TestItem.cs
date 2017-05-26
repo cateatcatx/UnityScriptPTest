@@ -116,8 +116,10 @@ public class TestEmptyFunc : TestItem
         m_ptest.logText += "Test" + m_index + " Begin:\n";
 #if ILRuntime
         IType type = m_ptest.appdomain.LoadedTypes["PTest"];
+        IMethod method = type.GetMethod("EmptyFunc", 0);
 #else
         System.Type type = m_ptest.assembly.GetType("PTest");
+        var method = type.GetMethod("EmptyFunc");
 #endif
         int count = m_ptest.runCount;
         double totalMS = 0;
@@ -130,10 +132,8 @@ public class TestEmptyFunc : TestItem
             for (int j = 0; j < 200000; ++j)
             {
 #if ILRuntime
-                IMethod method = type.GetMethod("EmptyFunc", 0);
                 m_ptest.appdomain.Invoke(method, null, null);
 #else
-                var method = type.GetMethod("EmptyFunc");
                 method.Invoke(null, null);
 #endif
             }
